@@ -15,35 +15,63 @@
     </ul>
 
     <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JkZW5hZG9yJTIwZGUlMjBtZXNhfGVufDB8fDB8fHww" alt="imagen 1">
-    <h2>Tabla Datos Ingeniera</h2>
-  <table border="1">
-    <tr>
-      <th>Nombre</th>
-      <th>Edad</th>
-    </tr>
-    <tr>
-      <td>Juan</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <td>Ana</td>
-      <td>25</td>
-    </tr>
-  </table>
+    <h2>Tabla Datos personal </h2>
+<table border="1" id="miTabla">
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Correo</th>
+  </tr>
+  <tr>
+    <td>Celeste</td>
+    <td>20</td>
+    <td>celeste@gmail.com</td>
+  </tr>
+  <tr>
+    <td>victor</td>
+    <td>20</td>
+    <td>victor@mail.com</td>
+  </tr>
+</table>
 
-  <h2>Formulario Datos Ingenieros</h2>
-  <form>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre"><br><br>
+<h2>Formulario Datos personal nuevo</h2>
+<form id="miForm">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre"><br><br>
 
-    <label for="edad">Edad:</label>
-    <input type="number" id="edad" name="edad"><br><br>
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" name="edad"><br><br>
 
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo"><br><br>
+  <label for="correo">Correo:</label>
+  <input type="email" id="correo" name="correo"><br><br>
 
-    <button type="submit">Enviar</button>
-  </form>
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  // Tomamos el formulario y la tabla
+  const form = document.getElementById('miForm');
+  const tabla = document.getElementById('miTabla');
+
+  // Escuchamos el evento de envío
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita recargar la página
+
+    // Leemos los valores de los inputs
+    const nombre = document.getElementById('nombre').value;
+    const edad = document.getElementById('edad').value;
+    const correo = document.getElementById('correo').value;
+
+    // Agregamos una nueva fila a la tabla
+    const nuevaFila = tabla.insertRow();
+    nuevaFila.insertCell(0).textContent = nombre;
+    nuevaFila.insertCell(1).textContent = edad;
+    nuevaFila.insertCell(2).textContent = correo;
+
+    // Limpiamos el formulario
+    form.reset();
+  });
+</script>
     
 </body>
 </html>
